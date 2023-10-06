@@ -99,7 +99,7 @@ class GameStateTest {
     }
 
     @Test
-    void activePlayersInHand() {
+    void active_players_in_hand() {
         assertEquals(2, buildGameStateWithDefaults().activePlayersInHand());
         assertEquals(2, buildGameStateWithPlayerStatus(PlayerStatus.ACTIVE, PlayerStatus.ACTIVE, PlayerStatus.FOLDED).activePlayersInHand());
         assertEquals(1, buildGameStateWithPlayerStatus(PlayerStatus.FOLDED, PlayerStatus.ACTIVE, PlayerStatus.FOLDED).activePlayersInHand());
@@ -139,5 +139,4 @@ class GameStateTest {
                     new Card("6", Suit.DIAMONDS))).bettingRound());
         }
     }
-
 }

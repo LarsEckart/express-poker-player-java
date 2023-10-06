@@ -55,7 +55,7 @@ record GameState(
         for (Suit s : Suit.values()) {
             int holeCount = (int) me().holeCards().stream().filter(c -> c.suit().equals(s)).count();
             int communityCount = (int) communityCards().stream().filter(c -> c.suit().equals(s)).count();
-            counts.put(s, new CardCount(communityCount, holeCount, holeCount + communityCount));
+            counts.put(s, new CardCount(communityCount, holeCount));
         }
         return counts;
     }
@@ -66,7 +66,7 @@ record GameState(
         for (String r : ranks) {
             int holeCount = (int) me().holeCards().stream().filter(c -> c.rank().equals(r)).count();
             int communityCount = (int) communityCards().stream().filter(c -> c.rank().equals(r)).count();
-            counts.put(r, new CardCount(communityCount, holeCount, holeCount + communityCount));
+            counts.put(r, new CardCount(communityCount, holeCount));
         }
         return counts;
     }

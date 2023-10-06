@@ -13,17 +13,23 @@ class PlayerStateTest {
 
     @Test
     void has_pocket_pair() {
-        assertFalse(buildPlayerWithOffSuitCards("A", "9").hasPocketPair());
-        assertFalse(buildPlayerWithSuitedCards("3", "7").hasPocketPair());
-
         assertTrue(buildPlayerWithOffSuitCards("4", "4").hasPocketPair());
         assertTrue(buildPlayerWithSuitedCards("A", "A").hasPocketPair());
     }
 
     @Test
+    void has_no_pocket_pair() {
+        assertFalse(buildPlayerWithOffSuitCards("A", "9").hasPocketPair());
+        assertFalse(buildPlayerWithSuitedCards("3", "7").hasPocketPair());
+    }
+
+    @Test
     void has_suited_pair() {
         assertTrue(buildPlayerWithSuitedCards("A", "9").hasPocketSuited());
+    }
 
+    @Test
+    void has_unsuited_pair() {
         assertFalse(buildPlayerWithOffSuitCards("A", "A").hasPocketSuited());
     }
 
